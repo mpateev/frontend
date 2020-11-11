@@ -10,3 +10,13 @@
   font-weight: 600;
   font-size: larger;
 }
+
+.summary {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.description {
+  font-weight: 200;
+}

@@ -53,7 +53,7 @@ export default function Dashboard() {
       </Container>
     );
 
-  const Cards = data.map((cont) => <DashCard data={cont} />);
+  const Cards = data.map((dat) => <DashCard data={dat} />);
   return (
     <Router>
       <DashNavBar />

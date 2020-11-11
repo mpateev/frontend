@@ -58,15 +58,18 @@ export default function DashCard(props) {
         <Card.Body className="h-50">
           <Card.Text>
             <Card.Title>{cardTitle}</Card.Title>
-            <div className="">{cardSummary}</div>
+            <div className=""></div>
             <Collapse in={showText}>
-              <div id={cardCollapse}>{cardText}</div>
+              <div id={cardCollapse}>
+                <div className="summary">{cardSummary}</div>
+                <div className="description">{cardText}</div>
+              </div>
             </Collapse>
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <span
-            className="text-secondary"
+            className="text-secondary card-footer-open"
             onClick={() => setShowText(!showText)}
             aria-controls={cardCollapse}
             aria-expanded={showText}

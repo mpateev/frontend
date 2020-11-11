@@ -21,7 +21,7 @@ export const CardContent = [
     id: "3",
     header: "Quis fugiat amet consequat deserunt anim.",
     title:
-      "Esse culpa aliquip ea amet anim reprehenderit amet Lorem esse elit dolore quis mollit cillum.",
+      "Cupidatat sit minim ex non nostrud irure quis voluptate nostrud dolore pariatur. Id ipsum cupidatat ad velit veniam magna velit sunt elit. Ad do fugiat est velit.",
     summary:
       "Dolor labore consectetur anim enim. Elit excepteur cupidatat exercitation reprehenderit. Sint consequat voluptate ex ad non in excepteur do et. Duis culpa ut eu aliqua sunt sunt nostrud ullamco fugiat. Amet ipsum occaecat id officia reprehenderit.",
     text:
