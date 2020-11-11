@@ -1,0 +1,14 @@
+.header {
+  text-align: center;
+}
+
+.custom-btn-toolbar {
+  display: inline !important;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.custom-link {
+  margin-left: 1rem;
+}
