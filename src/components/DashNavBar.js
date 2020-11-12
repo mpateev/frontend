@@ -1,11 +1,11 @@
-import React from "react";
-import Nav from "react-bootstrap/Nav";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { Container } from "react-bootstrap";
+import React from 'react'
+import Nav from 'react-bootstrap/Nav'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import { Container } from 'react-bootstrap'
 
-export default function DashNavBar(props) {
+export default function DashNavBar (props) {
   return (
     <Container>
       <Nav
@@ -13,7 +13,7 @@ export default function DashNavBar(props) {
         // onSelect={(selectedKey) => alert(selectedKey)}
         className="justify-content-end p-2"
       >
-        {/*<ButtonToolbar size="sm" className="custom-btn-toolbar">*/}
+        {/* <ButtonToolbar size="sm" className="custom-btn-toolbar"> */}
         <Nav.Item>
           <Nav.Link href="/animals">Animals</Nav.Link>
         </Nav.Item>
@@ -27,8 +27,8 @@ export default function DashNavBar(props) {
             Members
           </Nav.Link>
         </Nav.Item>
-        {/*</ButtonToolbar>*/}
+        {/* </ButtonToolbar> */}
       </Nav>
     </Container>
-  );
+  )
 }
