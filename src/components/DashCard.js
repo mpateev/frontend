@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import Collapse from "react-bootstrap/Collapse";
-import { FontAwesomeIcon as FAI } from "@fortawesome/react-fontawesome";
+/* eslint-disable multiline-ternary */
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
+import Collapse from 'react-bootstrap/Collapse'
+import { FontAwesomeIcon as FAI } from '@fortawesome/react-fontawesome'
 import {
   faAngry,
   faArrowAltCircleDown,
@@ -13,44 +14,46 @@ import {
   faEye,
   faEyeSlash,
   faHotdog,
-  faPaw,
+  faPaw
   // faGlasses,
   // faPaw,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons'
 
-import "./dashcard.css";
+import './dashcard.css'
 // card in the dashboard
-export default function DashCard(props) {
+export default function DashCard (props) {
   // <DashCard id=number header="string" title="string" summary="string" text="string" />
-  const [showText, setShowText] = useState(false);
+  const [showText, setShowText] = useState(false)
 
   if (!props) {
-    return <></>;
+    return <></>
   }
 
-  const cardId = props.data.id;
-  const cardHeader = props.data.name;
-  const cardTitle = props.data.title;
-  const cardImage = props.data.image;
-  const cardSummary = props.data.summary;
-  const cardUpdate = props.data.updated_at;
-  const cardText = props.data.text;
-  const cardType = props.data.type;
-  const cardCollapse = "collapse-" + cardId;
-  let myType;
+  const cardId = props.data.id
+  const cardHeader = props.data.name
+  const cardTitle = props.data.title
+  const cardImage = props.data.image
+  const cardSummary = props.data.summary
+  const cardUpdate = props.data.updated_at
+  const cardText = props.data.text
+  const cardType = props.data.type
+  const cardCollapse = 'collapse-' + cardId
+  let myType
 
   return (
     <div>
       <Card>
         <Card.Header>
           <span className="float-right text-secondary">
-            {cardType === "1" ? (
+            {cardType === '1' ? (
               <FAI icon={faCat} />
-            ) : cardType === "2" ? (
+            )
+              : cardType === '2' ? (
               <FAI icon={faDog} />
-            ) : (
+              )
+                : (
               <FAI icon={faPaw} />
-            )}
+                  )}
           </span>
           <span className="card-title">{cardHeader}</span>
         </Card.Header>
@@ -84,5 +87,5 @@ export default function DashCard(props) {
         </Card.Footer>
       </Card>
     </div>
-  );
+  )
 }
