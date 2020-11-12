@@ -1,8 +1,5 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav'
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
 import { Container } from 'react-bootstrap'
 
 export default function DashNavBar (props) {

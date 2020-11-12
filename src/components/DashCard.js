@@ -14,9 +14,8 @@ import {
   faEye,
   faEyeSlash,
   faHotdog,
-  faPaw
-  // faGlasses,
-  // faPaw,
+  faPaw,
+  faGlasses,
 } from '@fortawesome/free-solid-svg-icons'
 
 import './dashcard.css'
@@ -38,7 +37,6 @@ export default function DashCard (props) {
   const cardText = props.data.text
   const cardType = props.data.type
   const cardCollapse = 'collapse-' + cardId
-  let myType
 
   return (
     <div>

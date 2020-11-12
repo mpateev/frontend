@@ -1,53 +1,71 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import axios from 'axios'
 
 import About from './components/About'
 import Home from './components/Home'
 import Dashboard from './components/Dashboard'
 
+import Nav from 'react-bootstrap/Nav'
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  // Link,
+  NavLink
 } from 'react-router-dom'
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
+import { Container } from 'react-bootstrap'
 
 export default function App () {
+  const url = 'http://localhost/animal'
+  //   const url = "http://api.murrik.com/animal";
+  const [data, setData] = useState([])
+  // const [show, setShow] = useState(false)
+
+  //* data loading on the initial load
+  //
+  useEffect(() => {
+    async function fetchData () {
+      await axios
+        .get(url, { headers: { 'Content-Type': 'application/json' } })
+        .then((response) => {
+          console.log('fetchData: response =>', response.data)
+          if (Object.prototype.hasOwnProperty.call(response.data, 'animal')) {
+            setData(response.data.animal)
+          } else {
+            setData([response.data])
+          }
+        })
+        .catch((err) => console.log(err))
+    }
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    console.log('useEffect: data changed', data)
+  }, [data])
+
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
+      <Container>
+      <Nav className="navbar justify-content-end p-4">
+        {/* <Nav.Item className="mr-4"> */}
+            <NavLink to="/">Home</NavLink>
+        {/* </Nav.Item>
+        <Nav.Item className="mr-4"> */}
+            <NavLink to="/about">About</NavLink>
+        {/* </Nav.Item>
+        <Nav.Item className="mr-2"> */}
+            <NavLink to="/dashboard">Dashboard</NavLink>
+        {/* </Nav.Item> */}
+      </Nav>
+      </Container>
 
-        <hr />
-
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home data={data} />
           </Route>
           <Route path="/about">
             <About />
@@ -56,7 +74,6 @@ export default function App () {
             <Dashboard />
           </Route>
         </Switch>
-      </div>
     </Router>
   )
 }
