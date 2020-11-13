@@ -16,6 +16,8 @@ import About from './components/About';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 
+import logoImage from "./rtin_logo.png";
+
 export default function App() {
   const url = 'http://localhost/animal';
   //   const url = "http://api.murrik.com/animal";
@@ -52,7 +54,7 @@ export default function App() {
       <Container>
         <Navbar collapseOnSelect expand="lg" bg="warning" variant="dark">
           <Navbar.Brand href="/">
-            <Image src="/rtin_logo.png" height="40px" />
+            <Image src={logoImage} height="40px" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
