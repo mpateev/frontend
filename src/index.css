@@ -12,13 +12,18 @@ code {
     monospace;
 }
 
-.navbar {
-  background-color: bisque;
-}
+/* .navbar {
+  background-color: #feb;
+} */
 
-.navbar :any-link {
-  color: black;
+/* .navbar :any-link {
+  color: darkred;
   font-size: larger;
   font-weight: 600;
   margin-right: 1rem;
 }
+.bg-rtin {
+  background-color: #963;
+}
+
+*/

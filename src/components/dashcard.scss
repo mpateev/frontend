@@ -1,5 +1,6 @@
 .card-footer-open :hover {
   cursor: pointer;
+  margin-left: 2rem;
 }
 
 .ikon {
@@ -12,9 +13,13 @@
 }
 
 .summary {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 200;
+  font-family: 'Trebuchet MS',
+  'Lucida Sans Unicode',
+  'Lucida Grande',
+  'Lucida Sans',
+  Arial,
+  sans-serif;
+  font-weight: 100;
 }
 
 .description {

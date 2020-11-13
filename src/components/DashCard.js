@@ -1,89 +1,75 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable multiline-ternary */
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
-import Card from 'react-bootstrap/Card'
-import Collapse from 'react-bootstrap/Collapse'
+import PropTypes from "prop-types";
+
+import { Card, Collapse } from "react-bootstrap";
+
 import { FontAwesomeIcon as FAI } from '@fortawesome/react-fontawesome'
-import {
-  faAngry,
-  faArrowAltCircleDown,
-  faArrowAltCircleUp,
-  faBone,
-  faCat,
-  faDog,
-  faEye,
-  faEyeSlash,
-  faHotdog,
-  faPaw,
-  faGlasses,
-} from '@fortawesome/free-solid-svg-icons'
+import { faMars, faVenus } from "@fortawesome/free-solid-svg-icons";
 
 import './dashcard.css'
 // card in the dashboard
-export default function DashCard (props) {
+export default function DashCard({ data }) {
   // <DashCard id=number header="string" title="string" summary="string" text="string" />
-  const [showText, setShowText] = useState(false)
+  const [showText, setShowText] = useState(false);
 
-  if (!props) {
-    return <></>
+  if (!data) {
+    return <></>;
   }
 
-  const cardId = props.data.id
-  const cardHeader = props.data.name
-  const cardTitle = props.data.title
-  const cardImage = props.data.image
-  const cardSummary = props.data.summary
-  const cardUpdate = props.data.updated_at
-  const cardText = props.data.text
-  const cardType = props.data.type
-  const cardCollapse = 'collapse-' + cardId
+  const cardCollapse = `collapse-${data.id}`;
 
   return (
     <div>
-      <Card>
+      <Card border="secondary">
         <Card.Header>
-          <span className="float-right text-secondary">
-            {cardType === '1' ? (
-              <FAI icon={faCat} />
-            )
-              : cardType === '2' ? (
-              <FAI icon={faDog} />
-              )
-                : (
-              <FAI icon={faPaw} />
-                  )}
-          </span>
-          <span className="card-title">{cardHeader}</span>
+          <Card.Title>
+            <span className="text-secondary mr-2">{data.name}</span>
+            <span className="card-title"></span>
+            <span className="float-right text-secondary">
+              {/* {data.type == 1 ? <FAI icon={faCat} /> : <FAI icon={faPaw} />} */}
+              {data.female ? <FAI icon={faVenus} /> : <FAI icon={faMars} />}
+            </span>
+          </Card.Title>
         </Card.Header>
-        <Card.Img variant="top" src={cardImage} />
-        <Card.Body className="h-50">
-          <Card.Text>
-            <Card.Title>{cardTitle}</Card.Title>
-            <div className=""></div>
-            <Collapse in={showText}>
+        <Card.Img
+          variant="top"
+          src={data.image}
+          onClick={() => setShowText(!showText)}
+          onKeyPress={() => setShowText(!showText)}
+          role="button"
+          tabIndex={0}
+          aria-controls={cardCollapse}
+          aria-expanded={showText}
+        />
+        {/* <div className="" /> */}
+        <Collapse in={showText}>
+          <Card.Body className="h-50">
+            <Card.Title>
+              <div>{data.title}</div>
+            </Card.Title>
+            <Card.Text>
               <div id={cardCollapse}>
-                <div className="summary">{cardSummary}</div>
-                <div className="description">{cardText}</div>
+                <div className="summary">{data.summary}</div>
+                <div className="description">{data.text}</div>
+                <p>
+                  <span className="float-right">
+                    Last updated: {data.updated_at}
+                  </span>
+                </p>
               </div>
-            </Collapse>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <span
-            className="text-secondary card-footer-open"
-            onClick={() => setShowText(!showText)}
-            aria-controls={cardCollapse}
-            aria-expanded={showText}
-          >
-            {showText ? (
-              <FAI icon={faArrowAltCircleUp} />
-            ) : (
-              <FAI icon={faArrowAltCircleDown} />
-            )}
-          </span>
-          <span className="float-right">{cardUpdate}</span>
-        </Card.Footer>
+            </Card.Text>
+          </Card.Body>
+        </Collapse>
+        {/* <Card.Footer></Card.Footer> */}
       </Card>
     </div>
-  )
+  );
 }
+
+DashCard.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+// {showText ? (<FAI icon={faArrowAltCircleUp} />) : (<FAI icon={faArrowAltCircleDown} />)}
