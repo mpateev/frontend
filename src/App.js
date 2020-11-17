@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+// we use 'axios' library for async data retieval
 import axios from 'axios';
 
 // import Nav from 'react-bootstrap/Nav';
@@ -19,10 +20,11 @@ import Dashboard from './components/Dashboard';
 import logoImage from "./rtin_logo.png";
 
 export default function App() {
-  const url = 'http://localhost/animal';
-  //   const url = "http://api.murrik.com/animal";
-  const [data, setData] = useState([]);
-  // const [show, setShow] = useState(false)
+  // set the url of the backend api server
+  const url = "http://localhost/animal";
+  //  'data' state holds the animal data loaded from the api
+  const [data, setData] = useState([]); // api from local server
+  // const url = "http://api.murrik.com/animal"; // api server on strato server
 
   //* data loading on the initial load
   //
@@ -31,10 +33,10 @@ export default function App() {
 
     async function fetchData() {
       await axios
-        .get(url, { headers: { 'Content-Type': 'application/json' } })
+        .get(url, { headers: { "Content-Type": "application/json" } })
         .then((response) => {
           // console.log('fetchData: response =>', response.data);
-          if (Object.prototype.hasOwnProperty.call(response.data, 'animal')) {
+          if (Object.prototype.hasOwnProperty.call(response.data, "animal")) {
             setData(response.data.animal);
           } else {
             setData([response.data]);
@@ -65,7 +67,7 @@ export default function App() {
                 </NavLink>
               </Nav.Item>
               <Nav.Item>
-                <NavLink to="/about" className="nav-link strong">
+                <NavLink to="/about" className="nav-link">
                   About
                 </NavLink>
               </Nav.Item>
